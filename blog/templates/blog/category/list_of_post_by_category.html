@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+    <h1 class="categ_title">{{ category.name|upper }}</h1> <br>
+
+   {% for posts in post %}
+        <h2 class="post_title">{{ posts.title|upper }}</h2>
+        {% if posts.img1 %}
+            <img src="{{MEDIA_URL}}{{posts.img1.url}}" class="float_left">
+        {% endif %}
+        <div class="post_content">{{posts.content|truncatewords:100|linebreaks}} </div>
+        <p class="post">
+            <div class="post_content">
+                {{posts.published}} &emsp;  POSTED IN
+                <a href="{{posts.category.get_absoulte_url}}" class="refer">
+                    {{posts.category|upper}}
+                </a> &emsp;
+                <a href="{{posts.get_absoulte_url}}" class="refer">
+                    READ MORE
+                </a>
+            </div>
+        </p> <br>
+    {% endfor %}
+
+{% endblock %}
+

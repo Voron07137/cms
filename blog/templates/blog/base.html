@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "my_media/css/style.css" %}'>
+    {% block header %}
+    {% endblock %}
+</head>
+<body>
+<div class="content">
+    <div class="left">
+        <a href="{% url 'blog:list_of_post' %}">
+             <img src='{% static "my_media/images/blog_image.png" %}' alt="My image">
+        </a>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="right">
+        <div class="UP_REFERENCE">
+            <a href="{% url 'blog:rss_reference' %}" class="refer">Subscribe by RSS</a>
+        </div>
+        <div class="UP_REFERENCE">
+            <a href="{% url 'blog:twitter_reference' %}" class="refer">Follow on Twitter</a>
+        </div>
+        <div class="REFERENCES">
+            <p><a href="{% url 'blog:list_of_post' %}" class="refer">HOME</a></p>
+        </div>
+        <div class="REFERENCES">
+            <a href="{% url 'blog:about_reference' %}" class="refer">ABOUT</a>
+        </div>
+        <div class="REFERENCES">
+            <p><a href="{% url 'blog:archives_reference' %}" class="refer">ARCHIVES</a></p>
+        </div>
+        <div class="REFERENCES">
+            <p><a href="{% url 'blog:contact_reference' %}" class="refer">CONTACT</a></p>
+        </div>
+        <div class="BIG_FONT"> <p class="head_bf">CATEGORIES </p> </div>
+        <div class="REFERENCES">
+               {% for category in categories %}
+                    <p><a href="{{category.get_absoulte_url}}" class="REFERENCES">{{category.name|upper}}</a></p>
+                {% endfor %}
+        </div>
+        <div class="BIG_FONT"> <p class="head_bf">SEARCH</p> </div>
+        <div class="BIG_FONT"> <p class="head_bf">ABOUT</p> </div>
+        <div class="about">
+            Ticketstub.com is an independent online ticket broker/ticket agency that specializes in
+            <a href="{% url 'blog:about_reference' %}" class="refer">
+                Read more...
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
