@@ -33,8 +33,14 @@ div.about {
 }
 
 div.REFERENCES {
-    margin-left: 50px;
-    color: #B22222
+    color: #B22222;
+}
+
+p.ref_in_div {
+    margin-right: 90px;
+    float: right;
+    background-color:  rgb(240,240,240);
+    color: #B22222;
 }
 
 div.left {
