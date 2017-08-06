@@ -124,13 +124,13 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
+STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn/")
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media_cdn/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn/")
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
