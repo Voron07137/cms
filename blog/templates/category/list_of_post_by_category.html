@@ -1,19 +1,15 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 
-{% load staticfiles %}
-
-{% block title %}List of blog post{% endblock %}
-
-{% block header %}
-{% endblock %}
+{% block title %}{{ category.name }}{% endblock %}
 
 {% block content %}
+    <h1 class="categ_title">{{ category.name|upper }}</h1> <br>
 
-    {% for posts in post %}
+   {% for posts in post %}
         <h2 class="post_title">{{ posts.title|upper }}</h2>
-            {% if posts.img1 %}
-                <img src="{{MEDIA_URL}}{{posts.img1.url}}" class="float_left">
-            {% endif %}
+        {% if posts.img1 %}
+            <img src="{{MEDIA_URL}}{{posts.img1.url}}" class="float_left">
+        {% endif %}
         <div class="post_content">{{posts.content|truncatewords:100|linebreaks}} </div>
         <p class="post">
             <div class="post_content">
@@ -29,3 +25,4 @@
     {% endfor %}
 
 {% endblock %}
+
