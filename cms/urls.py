@@ -21,5 +21,4 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
-    url(r'^$', cms.blog.views.list_of_post'), name='list_of_post'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
