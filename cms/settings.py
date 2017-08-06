@@ -128,7 +128,7 @@ STATIC_ROOT = os.path.join(os.path.abspath("C:/Users/Олег/Documents/GitHub/d
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media_cdn/'
 
 MEDIA_ROOT = os.path.join(os.path.abspath("C:/Users/Олег/Documents/GitHub/django-blog/cms"), "media_cdn")
 
